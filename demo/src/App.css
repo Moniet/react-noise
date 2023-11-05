@@ -1,0 +1,22 @@
+@keyframes move {
+  to {
+    transform: translate(-250px);
+  }
+}
+
+.noise {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(90deg, #fff, rgba(50, 50, 50));
+  border-radius: 20px;
+}
+
+.noise canvas {
+  animation: move 0.03s linear alternate infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .noise {
+    background: #111;
+  }
+}
