@@ -24,10 +24,7 @@ const useNoise = (key: string) => {
     }
   }, [currentConfig, key])
 
-  return {
-    ref,
-    setConfig
-  }
+  return ref
 }
 
 export default useNoise

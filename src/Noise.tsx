@@ -3,7 +3,7 @@ import useNoise from "./useNoise"
 
 import "./index.css"
 
-type NoiseProps = {
+export type NoiseProps = {
   children?: ReactNode
   className?: string
   noiseKey?: string
@@ -15,7 +15,7 @@ const Noise = forwardRef<HTMLDivElement, NoiseProps>(
     { children, className = "", noiseKey = "default", isAnimated = false },
     ref
   ) => {
-    const { ref: canvasRef } = useNoise(noiseKey)
+    const canvasRef = useNoise(noiseKey)
 
     return (
       <div
