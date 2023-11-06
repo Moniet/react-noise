@@ -20,7 +20,7 @@ export default function generateNoise(
     img.data[i] = rand < 0.5 ? parseInt(r) : 1
     img.data[i + 1] = rand < 0.5 ? parseInt(g) : 1
     img.data[i + 2] = rand < 0.5 ? parseInt(b) : 1
-    img.data[i + 3] = rand < 0.5 ? opacity : 0
+    img.data[i + 3] = rand < 0.5 ? (255 * opacity) | 0 : 0
   }
 
   ctx.putImageData(img, 0, 0)
