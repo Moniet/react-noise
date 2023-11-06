@@ -131,7 +131,7 @@ The noise config enables :
 | Property     | Type     | Default Value   | Description                        |
 | ------------ | -------- | --------------- | ---------------------------------- |
 | `key`        | `string` | `'default'`     | Cache key to track configs         |
-| `color`      | `string` | `'255 255 255'` | RGB values representing the color  |
+| `color`      | `string` | `'50 50 50'` | RGB values representing the color  |
 | `opacity`    | `number` | `0.1`           | Opacity value, ranging from 0 to 1 |
 | `resolution` | `object` | `1920x1080px`   | Definition of the Noise            |
 
