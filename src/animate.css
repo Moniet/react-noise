@@ -1,0 +1,11 @@
+@keyframes anim-noise {
+  100% {
+    transform: translate(-400px);
+  }
+}
+
+[data-noise-anim="true"] [data-noise="canvas"] {
+  animation: anim-noise var(--speed, 0.03s) linear alternate infinite;
+  width: var(--width, 1080px);
+  height: var(--height, 1080px);
+}
