@@ -24,8 +24,8 @@ let store: Store = {
   init,
   configs: {
     default: {
-      opacity: 5,
-      color: "255 255 255",
+      opacity: 0.1,
+      color: "50 50 50",
       resolution: {
         width: 1080,
         height: 1080
