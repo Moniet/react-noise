@@ -2,6 +2,10 @@
 
 `react-noise` is a light-weight react component that helps achieve a high-def 'noisy' texture effect. It supports both static and animated rendering as well as themeing.
 
+
+https://github.com/Moniet/react-noise/assets/20152320/6f46e060-3715-46b8-8a70-85ffa3a9f383
+
+
 ## Installation
 
 with pnpm : `pnpm i react-noise`
