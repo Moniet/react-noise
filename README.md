@@ -58,8 +58,8 @@ const NoisyImageCard = ({  bgImage, label, animate }) => {
 
 useNoiseConfig({ // should be set at top level, e.g App.tsx
   key: "img-noise",
-  color: "50 50 50",
-  opacity: 25
+  color: "50 50 50", // rgb pattern
+  opacity: 0.25      // 0-1 range
 }, [deps_array])
 
 const NoisyImageCard = ({  bgImage, label, animate }) => {
@@ -124,12 +124,12 @@ The noise config enables :
 
 ## `useNoiseConfig` props
 
-| Property     | Type     | Default Value   | Description                         |
-| ------------ | -------- | --------------- | ----------------------------------- |
-| `key`        | `string` | `'default'`     | Cache key to track configs.         |
-| `color`      | `string` | `'255 255 255'` | RGB values representing the color.  |
-| `opacity`    | `number` | `0.1`           | Opacity value, ranging from 0 to 1. |
-| `resolution` | `object` | `1920x1080px`   | Definition of the Noise             |
+| Property     | Type     | Default Value   | Description                        |
+| ------------ | -------- | --------------- | ---------------------------------- |
+| `key`        | `string` | `'default'`     | Cache key to track configs         |
+| `color`      | `string` | `'255 255 255'` | RGB values representing the color  |
+| `opacity`    | `number` | `0.1`           | Opacity value, ranging from 0 to 1 |
+| `resolution` | `object` | `1920x1080px`   | Definition of the Noise            |
 
 ### 🚧 Config Tip
 
@@ -148,3 +148,8 @@ to generate the noise image on the server-side to reap the benefits RSC.
 
 This can be potentially achieved through the node `canvas` library. The downside might be
 the large img file we would need to generate per component.
+
+## References
+
+- https://stackoverflow.com/questions/22003491/animating-canvas-to-look-like-tv-noise#22003901
+- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas
