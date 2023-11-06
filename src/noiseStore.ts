@@ -111,11 +111,10 @@ function renderNoise(canvas: HTMLCanvasElement, key = "default") {
 
   canvas?.getContext("2d").clearRect(0, 0, width, height)
   canvas.setAttribute("width", `${resolution.width}px`)
-  canvas.style.setProperty("--width", `${resolution.width}px`)
   canvas.setAttribute("height", `${resolution.height}px`)
-  canvas.style.setProperty("--height", `${resolution.height}px`)
   canvas.style.minWidth = `${resolution.width}`
   canvas.style.minHeight = `${resolution.height}`
+
   canvas.getContext("2d").drawImage(store.caches[key], 0, 0)
 
   return () => {
