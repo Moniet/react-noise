@@ -71,7 +71,7 @@ function setConfig(newConfig: Partial<NoiseConfig>, key = "default") {
       ...store.configs,
       [key]: {
         resolution: {
-          width: 1080,
+          width: 1920,
           height: 1080
         },
         ...store.configs[key],
