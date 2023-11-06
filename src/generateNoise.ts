@@ -1,6 +1,12 @@
 import { NoiseConfig } from "./types"
 import { Canvas } from "canvas"
 
+/*
+  basic idea inspired by :
+  • https://stackoverflow.com/questions/22003491/animating-canvas-to-look-like-tv-noise#22003901 
+  • https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas
+*/
+
 export default function generateNoise(
   canvas: HTMLCanvasElement,
   config: NoiseConfig
