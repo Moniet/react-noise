@@ -3,11 +3,17 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "baseUrl": ".",
-    "moduleResolution": "NodeNext",
-    "module": "NodeNext",
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "target": "ESNext",
     "noEmit": true,
+    "skipLibCheck": true,
+
+    "declaration": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "outDir": "./dist"
+  },
+  "include": ["src/*", "node_modules/microbundle/index.d.ts"]
 }
