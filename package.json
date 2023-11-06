@@ -1,15 +1,21 @@
 {
   "name": "react-noise",
   "version": "0.1.0",
-  "description": "",
+  "description": "A light-weight react component for creating noise textures",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "source": "./src/index.ts",
+  "files": [
+    "./dist",
+    "./README.md"
+  ],
   "type": "module",
   "exports": {
-    "default": "./dist/index.js"
+    "default": "./dist/index.js",
+    "types": "./dist"
   },
   "scripts": {
-    "build": "rm -rf ./dist && microbundle build --css-modules true"
+    "build": "rm -rf ./dist && microbundle build --sourcemap false --css-modules true -f esm,cjs,umd"
   },
   "keywords": [
     "texture",
