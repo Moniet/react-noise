@@ -59,8 +59,9 @@ function setConfig(newConfig: Partial<NoiseConfig>, key = "default") {
 
   if (
     newConfig.resolution &&
-    newConfig.resolution.width !== prevSize.width &&
-    newConfig.resolution.height !== prevSize.height
+    prevSize &&
+    newConfig.resolution?.width !== prevSize.width &&
+    newConfig.resolution?.height !== prevSize.height
   ) {
     store.caches[key] = null
   }
@@ -104,10 +105,11 @@ function init(key = "default") {
 }
 
 function renderNoise(canvas: HTMLCanvasElement, key = "default") {
-  if (!canvas) return null
+  const config = store.configs[key]
+  if (!canvas || !config) return null
 
   const { width, height } = canvas.getBoundingClientRect()
-  const { resolution } = store.configs[key]
+  const { resolution } = config
 
   canvas?.getContext("2d").clearRect(0, 0, width, height)
   canvas.setAttribute("width", `${resolution.width}px`)
