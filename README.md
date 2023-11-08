@@ -21,7 +21,7 @@ with yarn : yarn add react-noise`
 
 ### Without config
 
-```
+```jsx
 
 import { Noise } from "react-noise"
 import "react-noise/index.css" // 🚧 required for base styling and animation
@@ -60,7 +60,7 @@ const NoisyImageCard = ({  bgImage, label, animate }) => {
 
 ### With config
 
-```
+```jsx
 ...
 
 useNoiseConfig({ // should be set at top level, e.g App.tsx
@@ -109,7 +109,7 @@ The noise config enables :
 
 ### Usage
 
-```
+```jsx
   const isDarkMode = useDarkMode()
 
   useConfig({
