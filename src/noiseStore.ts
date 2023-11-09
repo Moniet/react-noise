@@ -1,14 +1,14 @@
 import generateNoise from "./generateNoise"
 import { NoiseConfig } from "./types"
 
-type CacheStore<T> = {
+type Cached<T> = {
   [index: string]: T
 }
 
 type Store = {
-  caches: CacheStore<HTMLCanvasElement>
-  initFinished: CacheStore<boolean>
-  configs: CacheStore<NoiseConfig>
+  caches: Cached<HTMLCanvasElement>
+  initFinished: Cached<boolean>
+  configs: Cached<NoiseConfig>
   init: typeof init
   renderNoise: typeof renderNoise
   setConfig: typeof setConfig
@@ -44,6 +44,9 @@ const noiseStore = {
     }
   },
   getSnapshot() {
+    return store
+  },
+  getServerSnapshot() {
     return store
   }
 }

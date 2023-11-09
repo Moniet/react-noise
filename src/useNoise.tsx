@@ -6,7 +6,8 @@ const useNoise = (key: string) => {
 
   const { renderNoise, init, setConfig, configs } = useSyncExternalStore(
     noiseStore.subscribe,
-    noiseStore.getSnapshot
+    noiseStore.getSnapshot,
+    noiseStore.getServerSnapshot
   )
 
   const currentConfig = configs[key]
