@@ -1,16 +1,18 @@
 {
   "name": "react-noise",
-  "amdName": "index",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A light-weight react component for creating noise textures",
   "module": "dist/index.js",
   "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
   "files": [
     "LICENSE",
     "./dist/*.css",
     "./dist/*.ts",
     "./dist/*.js",
-    "./dist/*.cjs"
+    "./dist/*.cjs",
+    "./dist/client/*.ts",
+    "./dist/client/*.js"
   ],
   "type": "module",
   "exports": {
