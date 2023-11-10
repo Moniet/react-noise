@@ -58,7 +58,7 @@ const NoisyImageCard = ({  bgImage, label, animate }) => {
       }}
     >
       {/*👇 an (optional) helper for easier content styling (recommended) */}
-      <NoiseContent style={contentStylep}>
+      <NoiseContent style={contentStyle}>
         <div style={labelStyle}>
           {label}
         </div>
@@ -90,9 +90,11 @@ const NoisyImageCard = ({  bgImage, label, animate }) => {
       }}
       noiseKey="img-noise" // this refers to the cached noise config, see "Noise Config" to learn more
     >
-      <div style={labelStyle}>
-        {label}
-      </div>
+      <NoiseContent style={contentStyle}>
+        <div style={labelStyle}>
+          {label}
+        </div>
+      </NoiseContent>
     </Noise>
   )
 }
@@ -169,7 +171,10 @@ to generate the noise image on the server-side to reap the benefits RSC.
 This can be potentially achieved through the node `canvas` library. The downside might be
 the large img file we would need to generate per component.
 
-###
+### Gradient Noise
+
+SVG fractal noise enables some cool effects, it would be cool to abstract this into a react
+component and optionally enable some animation.
 
 ## References
 
