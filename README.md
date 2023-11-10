@@ -22,20 +22,28 @@ with yarn : yarn add react-noise`
 ### Without config
 
 ```jsx
+"use client" // if using next.js
 
-import { Noise } from "react-noise"
-import "react-noise/index.css" // 🚧 required for base styling and animation
+import { Noise, NoiseContent } from "react-noise"
+import "react-noise/css" // 🚧 required for base styling and animation
 
 const cardStyle = {
   width: '100%',
   height: '100%',
   borderRadius: '20px'
-  backgroundImage: "var(--bg-image)"
+  backgroundImage: "var(--bg-image)",
+  overflow: 'hidden' // 🚧 to prevent noise overflow, not applied by default
 }
 
 const labelStyle = {
   fontSize: '4rem',
   color: 'white'
+}
+
+const contentStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
 }
 
 
@@ -49,9 +57,12 @@ const NoisyImageCard = ({  bgImage, label, animate }) => {
         '--bg-image': bgImage
       }}
     >
-      <div style={labelStyle}>
-        {label}
-      </div>
+      {/*👇 an (optional) helper for easier content styling (recommended) */}
+      <NoiseContent style={contentStylep}>
+        <div style={labelStyle}>
+          {label}
+        </div>
+      </NoiseContent>
     </Noise>
   )
 }
@@ -150,11 +161,15 @@ noise is only rendered [off-screen](https://developer.mozilla.org/en-US/docs/Web
 
 ## 🏗️ Coming Soon
 
+### SSR support
+
 The SSR only version of the component is in the works. Ideally we should be able
 to generate the noise image on the server-side to reap the benefits RSC.
 
 This can be potentially achieved through the node `canvas` library. The downside might be
 the large img file we would need to generate per component.
+
+###
 
 ## References
 
