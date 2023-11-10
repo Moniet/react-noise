@@ -1,10 +1,10 @@
-import { useEffect, useRef, useSyncExternalStore } from "react"
-import noiseStore from "./noiseStore"
+import { useLayoutEffect, useRef, useSyncExternalStore } from "react"
+import noiseStore, { init, renderNoise } from "./noiseStore"
 
 const useNoise = (key: string) => {
   const ref = useRef<HTMLCanvasElement>(null)
 
-  const { renderNoise, init, setConfig, configs } = useSyncExternalStore(
+  const { configs, initFinished } = useSyncExternalStore(
     noiseStore.subscribe,
     noiseStore.getSnapshot,
     noiseStore.getServerSnapshot
@@ -12,7 +12,7 @@ const useNoise = (key: string) => {
 
   const currentConfig = configs[key]
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!configs[key]) {
       return undefined
     }
@@ -25,7 +25,7 @@ const useNoise = (key: string) => {
     }
   }, [currentConfig, key])
 
-  return ref
+  return [ref, !initFinished[key]] as const
 }
 
 export default useNoise

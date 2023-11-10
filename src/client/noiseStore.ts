@@ -1,14 +1,14 @@
-import generateNoise from "./generateNoise"
-import { NoiseConfig } from "./types"
+import generateNoise from "../generateNoise"
+import { NoiseConfig } from "../types"
 
-type Cached<T> = {
+type Cache<T> = {
   [index: string]: T
 }
 
 type Store = {
-  caches: Cached<HTMLCanvasElement>
-  initFinished: Cached<boolean>
-  configs: Cached<NoiseConfig>
+  caches: Cache<HTMLCanvasElement>
+  initFinished: Cache<boolean>
+  configs: Cache<NoiseConfig>
   init: typeof init
   renderNoise: typeof renderNoise
   setConfig: typeof setConfig
@@ -25,7 +25,7 @@ let store: Store = {
   configs: {
     default: {
       opacity: 0.1,
-      color: "50 50 50",
+      color: "75 75 75",
       resolution: {
         width: 1080,
         height: 1080
@@ -102,7 +102,8 @@ function init(key = "default") {
   const config = store.configs[key]
   const { width, height } = config.resolution || {}
   const canvas = store.caches[key] || createCanvas(width, height, key)
-  generateNoise(canvas, config)
+  const ctx = canvas.getContext("2d")
+  generateNoise(ctx, config)
 
   store.initFinished[key] = true
 }
@@ -128,4 +129,4 @@ function renderNoise(canvas: HTMLCanvasElement, key = "default") {
 }
 
 export default noiseStore
-export { setConfig, init }
+export { setConfig, init, renderNoise }

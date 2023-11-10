@@ -1,28 +1,33 @@
 {
   "name": "react-noise",
+  "amdName": "index",
   "version": "0.1.3-test",
   "description": "A light-weight react component for creating noise textures",
   "module": "dist/index.js",
   "source": "./src/index.ts",
   "files": [
     "LICENSE",
-    "./dist/index.cjs",
-    "./dist/index.js",
-    "./dist/index.umd.js",
     "./dist/*.css",
-    "./dist/*.ts"
+    "./dist/*.ts",
+    "./dist/*.js",
+    "./dist/*.cjs"
   ],
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/react-noise.cjs",
+      "default": "./dist/react-noise.js"
     },
-    "./css": "./dist/index.css"
+    "./css": "./dist/react-noise.css",
+    "./ssr": {
+      "types": "./dist/ssr/ssr.d.ts",
+      "require": "./dist/ssr.cjs",
+      "default": "./dist/ssr.js"
+    }
   },
   "scripts": {
-    "build": "rm -rf ./dist && microbundle build --sourcemap false -f esm,cjs,umd"
+    "build": "rm -rf ./dist && microbundle ./src/index.ts --sourcemap false -f esm,cjs,umd"
   },
   "keywords": [
     "texture",
@@ -36,6 +41,7 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2",
+    "canvas": ">=2.11.2",
     "microbundle": "^0.15.1"
   }
 }

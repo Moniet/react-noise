@@ -1,6 +1,6 @@
-import Noise, { NoiseProps } from "./Noise"
-import useNoiseConfig from "./useNoiseConfig"
+import Noise, { NoiseProps } from "./client/Noise"
 import { NoiseConfig } from "./types"
+import useNoiseConfig from "./client/useNoiseConfig"
 
 export { Noise, useNoiseConfig }
 

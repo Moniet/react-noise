@@ -1,5 +1,5 @@
 import { NoiseConfig } from "./types"
-import { Canvas } from "canvas"
+import canvas from "canvas"
 
 /*
   basic idea inspired by :
@@ -8,10 +8,11 @@ import { Canvas } from "canvas"
 */
 
 export default function generateNoise(
-  canvas: HTMLCanvasElement,
-  config: NoiseConfig
+  ctx: CanvasRenderingContext2D,
+  config: NoiseConfig,
+  ssr: boolean = false
 ) {
-  const ctx = canvas.getContext("2d")
+  const canvas = ctx.canvas
   const img = ctx!.createImageData(canvas.width, canvas.height)
   const len = img.data.length
 
@@ -30,4 +31,13 @@ export default function generateNoise(
   }
 
   ctx.putImageData(img, 0, 0)
+
+  if (ssr) {
+    try {
+      return canvas.toDataURL()
+    } catch (e) {
+      console.error(e)
+      return null
+    }
+  }
 }

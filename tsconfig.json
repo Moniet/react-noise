@@ -14,5 +14,16 @@
     },
     "outDir": "./dist"
   },
-  "include": ["src/*", "node_modules/microbundle/index.d.ts"]
+  "include": [
+    "src/*",
+    "node_modules/microbundle/index.d.ts",
+    "src/index.ts",
+    "src/client/Noise.tsx",
+    "src/client/NoiseContent.tsx",
+    "src/client/noiseStore.ts",
+    "src/ssr.ts",
+    "src/client/useNoise.tsx",
+    "src/client/useNoiseConfig.ts",
+    "src/ssr/useNoiseGen.ts"
+  ]
 }
