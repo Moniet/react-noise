@@ -1,15 +1,16 @@
-import { forwardRef, ReactNode } from "react"
-import styles from "./index.module.css"
+import { CSSProperties, forwardRef, ReactNode } from "react"
+import styles from "../styles/index.module.css"
 
 type NoiseContentProps = {
   className?: string
   children?: ReactNode
+  style: CSSProperties
 }
 
 const NoiseContent = forwardRef<HTMLDivElement, NoiseContentProps>(
-  ({ className, children }, ref) => {
+  ({ className, children, style = {} }, ref) => {
     return (
-      <div className={`${styles.content} ${className}`} ref={ref}>
+      <div className={`${styles.content} ${className}`} style={style} ref={ref}>
         {children}
       </div>
     )
