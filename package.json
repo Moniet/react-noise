@@ -1,6 +1,6 @@
 {
   "name": "react-noise",
-  "version": "0.2.1",
+  "version": "0.2.11",
   "description": "A light-weight react component for creating noise textures",
   "module": "dist/index.js",
   "source": "./src/index.ts",

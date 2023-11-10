@@ -4,7 +4,7 @@ import styles from "../styles/index.module.css"
 type NoiseContentProps = {
   className?: string
   children?: ReactNode
-  style: CSSProperties
+  style?: CSSProperties
 }
 
 const NoiseContent = forwardRef<HTMLDivElement, NoiseContentProps>(
